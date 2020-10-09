@@ -7,4 +7,5 @@
 -   심플한 디자인
 -   공백입력 방지기능
 
-[뭐하냐](./뭐하냐.PNG)
+![캡처](https://user-images.githubusercontent.com/48292190/95606525-683a7b00-0a95-11eb-8006-5471dd3d76d8.PNG)
+
