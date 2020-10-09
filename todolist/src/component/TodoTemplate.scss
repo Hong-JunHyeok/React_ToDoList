@@ -1,0 +1,41 @@
+$back_color: #282a36; //백그라운드 색
+$main_color: #44475a; //메인 색
+$font_color: #f8f8f2; //폰트 색
+$impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
+
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"); //폰트를 가져옴
+
+.TodoTemplate {
+    width: 40%;
+    height: 85vh;
+    border-radius: 15px;
+    background-color: $main_color;
+    font-family: "Noto Sans KR", sans-serif;
+    overflow: hidden;
+    &_header {
+        display: flex;
+        flex-direction: column;
+        &_mainTitle {
+            margin: 10px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+            color: $font_color;
+        }
+        &_subTitle {
+            text-align: center;
+            color: $impo_color;
+            font-weight: bold;
+        }
+    }
+    &_body {
+        border: 1px solid white;
+        height: 75%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    &_footer {
+    }
+}
