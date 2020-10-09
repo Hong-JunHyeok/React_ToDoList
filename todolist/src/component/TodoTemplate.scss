@@ -29,13 +29,48 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         }
     }
     &_body {
-        border: 1px solid white;
-        height: 75%;
         display: flex;
-        align-items: center;
         justify-content: center;
         flex-direction: column;
+        height: 70%;
+        overflow-y: auto;
     }
     &_footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        &_addTodo {
+            border-radius: 100%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            background-color: $impo_color;
+        }
+        &_input {
+            display: flex;
+            flex-direction: column;
+        }
     }
+}
+
+li {
+    list-style: none;
+    font-size: 20px;
+}
+.todo {
+    position: static;
+    width: 500px;
+    height: 100px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.44);
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 5px;
+    color: $font_color;
+    display: flex;
+    align-items: center;
+    margin: 10px;
 }

@@ -1,7 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./TodoTemplate.scss";
+import Swal from "sweetalert2";
 
 function TodoTemplate() {
+    const [state, setState] = useState({
+        todos: ["투두리스트를 작성해보세요"],
+        input: "",
+    });
+    const onChange = (e) => {
+        setState({
+            ...state,
+            input: e.target.value,
+        });
+        console.log(todos);
+    };
+    const onSubmit = () => {
+        if (input === "") {
+            Swal.fire({
+                icon: "error",
+                title: "공백은 제출할 수 없습니다",
+                showConfirmButton: false,
+                timer: 1500,
+            });
+        } else {
+            setState({
+                todos: todos.concat(input),
+                input: "",
+            });
+        }
+    };
+    const onSubmitEnter = (e) => {
+        if (e.key === "Enter") {
+            if (input === "") {
+                Swal.fire({
+                    icon: "error",
+                    title: "공백은 제출할 수 없습니다",
+                    showConfirmButton: false,
+                    timer: 1000,
+                });
+            } else {
+                setState({
+                    todos: todos.concat(input),
+                    input: "",
+                });
+            }
+        }
+    };
+    const { todos, input } = state;
+    const todosList = todos.map((obj, key) => (
+        <li className="todo" key={key}>
+            {obj}
+        </li>
+    ));
+    const inputs = useRef(null);
+
     return (
         <div className="TodoTemplate">
             <div className="TodoTemplate_header">
@@ -10,8 +62,23 @@ function TodoTemplate() {
                     일정관리 잘 하라구~
                 </div>
             </div>
-            <div className="TodoTemplate_body"></div>
-            <div className="TodoTemplate_footer">FOOTER</div>
+            <div className="TodoTemplate_body">{todosList}</div>
+            <div className="TodoTemplate_footer">
+                <div className="TodoTemplate_footer_input" ref={inputs}>
+                    <input
+                        type="text"
+                        value={input}
+                        onChange={onChange}
+                        onKeyPress={onSubmitEnter}
+                    />
+                    <input
+                        type="button"
+                        value="제출"
+                        onClick={onSubmit}
+                        onKeyPress={onSubmitEnter}
+                    />
+                </div>
+            </div>
         </div>
     );
 }
