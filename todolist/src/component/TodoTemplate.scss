@@ -11,7 +11,7 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
     border-radius: 15px;
     background-color: $main_color;
     font-family: "Noto Sans KR", sans-serif;
-    overflow: hidden;
+
     &_header {
         display: flex;
         flex-direction: column;
