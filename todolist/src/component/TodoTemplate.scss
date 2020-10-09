@@ -34,8 +34,12 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         align-items: center;
         flex-direction: column;
         height: 70%;
-        overflow-y: auto;
+        overflow: auto;
+        &_delete {
+            display: none;
+        }
     }
+
     &_footer {
         display: flex;
         justify-content: center;
@@ -64,7 +68,9 @@ li {
     display: flex;
     align-items: center;
     margin: 10px;
+    justify-content: space-between;
 }
+
 .todo_input {
     font-family: "Noto Sans KR", sans-serif;
     font-weight: bold;

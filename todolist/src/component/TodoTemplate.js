@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import "./TodoTemplate.scss";
 import Swal from "sweetalert2";
+import { AiFillDelete } from "react-icons/ai";
 
 function TodoTemplate() {
     const [state, setState] = useState({
@@ -76,6 +77,9 @@ function TodoTemplate() {
     const todosList = todos.map((obj, key) => (
         <li className="todo" key={key}>
             {obj}
+            <button className="TodoTemplate_body_delete">
+                <AiFillDelete></AiFillDelete>
+            </button>
         </li>
     ));
     const inputs = useRef(null);
