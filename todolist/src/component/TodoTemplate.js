@@ -21,6 +21,19 @@ function TodoTemplate() {
                 title: "공백은 제출할 수 없습니다",
                 showConfirmButton: false,
                 timer: 1500,
+                background: "#282a36",
+            });
+        } else if (input === "뭐하냐?") {
+            Swal.fire({
+                icon: "question",
+                title: "진짜 뭐하냐?",
+                showConfirmButton: false,
+                timer: 1500,
+                background: "#282a36",
+            });
+            setState({
+                todos: todos.concat(input),
+                input: "",
             });
         } else {
             setState({
@@ -37,6 +50,19 @@ function TodoTemplate() {
                     title: "공백은 제출할 수 없습니다",
                     showConfirmButton: false,
                     timer: 1000,
+                    background: "#282a36",
+                });
+            } else if (input === "뭐하냐?") {
+                Swal.fire({
+                    icon: "question",
+                    title: "진짜 뭐하냐?",
+                    showConfirmButton: false,
+                    timer: 1500,
+                    background: "#282a36",
+                });
+                setState({
+                    todos: todos.concat(input),
+                    input: "",
                 });
             } else {
                 setState({
@@ -68,12 +94,14 @@ function TodoTemplate() {
                     <input
                         type="text"
                         value={input}
+                        className="todo_input"
                         onChange={onChange}
                         onKeyPress={onSubmitEnter}
                     />
                     <input
                         type="button"
                         value="제출"
+                        className="todo_submit"
                         onClick={onSubmit}
                         onKeyPress={onSubmitEnter}
                     />

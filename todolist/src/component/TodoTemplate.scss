@@ -40,17 +40,9 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        &_addTodo {
-            border-radius: 100%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            background-color: $impo_color;
-        }
+
         &_input {
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
         }
@@ -62,7 +54,7 @@ li {
     font-size: 20px;
 }
 .todo {
-    position: static;
+    position: relative;
     width: 500px;
     height: 100px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.44);
@@ -73,4 +65,25 @@ li {
     display: flex;
     align-items: center;
     margin: 10px;
+}
+.todo_input {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    width: 500px;
+    border: none;
+    border-radius: 10px;
+}
+.todo_submit {
+    padding: 5px;
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: #bd93f9;
+    background-color: #282a36;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }
