@@ -36,7 +36,6 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         height: 70%;
         overflow: auto;
         &_delete {
-            display: none;
         }
     }
 
@@ -91,4 +90,7 @@ li {
     outline: none;
     border: none;
     border-radius: 10px;
+}
+.delete {
+    cursor: pointer;
 }

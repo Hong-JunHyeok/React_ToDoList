@@ -13,7 +13,6 @@ function TodoTemplate() {
             ...state,
             input: e.target.value,
         });
-        console.log(todos);
     };
     const onSubmit = () => {
         if (input === "") {
@@ -73,13 +72,24 @@ function TodoTemplate() {
             }
         }
     };
+    const onDelete = (index) => {
+        setState({
+            input: "",
+            todos: todos.filter((item, i) => index !== i),
+        });
+    };
+
     const { todos, input } = state;
     const todosList = todos.map((obj, key) => (
-        <li className="todo" key={key}>
+        <li
+            className="todo"
+            key={key}
+            onClick={() => {
+                onDelete(key);
+            }}
+        >
             {obj}
-            <button className="TodoTemplate_body_delete">
-                <AiFillDelete></AiFillDelete>
-            </button>
+            <AiFillDelete className="delete"></AiFillDelete>
         </li>
     ));
     const inputs = useRef(null);
