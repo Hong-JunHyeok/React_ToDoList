@@ -81,15 +81,14 @@ function TodoTemplate() {
 
     const { todos, input } = state;
     const todosList = todos.map((obj, key) => (
-        <li
-            className="todo"
-            key={key}
-            onClick={() => {
-                onDelete(key);
-            }}
-        >
+        <li className="todo" key={key}>
             {obj}
-            <AiFillDelete className="delete"></AiFillDelete>
+            <AiFillDelete
+                className="delete"
+                onClick={() => {
+                    onDelete(key);
+                }}
+            ></AiFillDelete>
         </li>
     ));
     const inputs = useRef(null);
