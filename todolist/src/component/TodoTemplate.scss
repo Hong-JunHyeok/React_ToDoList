@@ -7,7 +7,7 @@ $safe_color: #50fa7b; //안전한 색 ㅎㅎ
 
 .TodoTemplate {
     width: 40%;
-    height: 90vh;
+    height: 93vh;
     border-radius: 15px;
     background-color: $main_color;
     font-family: "Noto Sans KR", sans-serif;
@@ -28,15 +28,14 @@ $safe_color: #50fa7b; //안전한 색 ㅎㅎ
             font-weight: bold;
         }
     }
+
     &_body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+        width: 100%;
+        padding-top: 5px;
+        overflow : auto;
         height: 65%;
-        overflow: auto;
-        &_delete {
-        }
+        display: flex;
+        flex-direction: column;
     }
 
     &_footer {

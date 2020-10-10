@@ -186,6 +186,11 @@ function TodoTemplate() {
                     일정관리 잘 하라구~
                 </div>
             </div>
+            <div className="TodoTemplate_nav">
+                <div className="TodoTemplate_nav_count">
+                    
+                </div>
+            </div>
             <div className="TodoTemplate_body">{todosList}</div>
             <div className="TodoTemplate_footer">
                 <div className="TodoTemplate_footer_input" ref={inputs}>
