@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 // 외부 라이브 러리는 꼭 wrapping해서 사용하도록 합시다
 import { AiFillDelete, AiFillQuestionCircle } from "react-icons/ai";
 
+const EASTER_EGG_VALUE = "뭐하냐?"
+
 function TodoTemplate() {
     const [state, setState] = useState({
         todos: ["투두리스트를 작성해보세요"],
@@ -32,7 +34,7 @@ function TodoTemplate() {
             return;
             // 얼리 리턴을 사용한다면 else가 없는 깔끔한 코드를 만들 수 있습니다
         }
-        if (input === "뭐하냐?") {
+        if (input === EASTER_EGG_VALUE) {
             Swal.fire({
                 icon: "question",
                 title: "진짜 뭐하냐?",
