@@ -1,10 +1,11 @@
-import React from "react";
-import TodoTemplate from "../component/TodoTemplate";
+import React from 'react';
+
+import TodoTemplate from '../component/TodoTemplate';
+
 function Todolist() {
     return (
-        <>
-            <TodoTemplate></TodoTemplate>
-        </>
+        // 사용하지 않는 프라그먼트는 지웁시다
+        <TodoTemplate />
     );
 }
 

@@ -1,8 +1,12 @@
 body {
     background-color: #282a36;
 }
+/* 이건 index.css에 들어가도 되는 내용이고 */
+
 .App {
     margin-top: 70px;
     display: flex;
     justify-content: center;
 }
+
+/* 이건 Container의 스타일 입니다. 나누어 줍시다 */
