@@ -90,6 +90,16 @@ li {
     outline: none;
     border: none;
     border-radius: 10px;
+    cursor: pointer;
+}
+.todo_delete-all {
+    border-radius: 10px;
+    background-color: $impo_color;
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-family: "Noto Sans KR", sans-serif;
+    cursor: pointer;
 }
 .delete {
     cursor: pointer;

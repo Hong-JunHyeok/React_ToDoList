@@ -78,7 +78,49 @@ function TodoTemplate() {
             todos: todos.filter((item, i) => index !== i),
         });
     };
+    const onDeleteAll = () => {
+        const swalWithBootstrapButtons = Swal.mixin({
+            customClass: {
+                confirmButton: "btn btn-success",
+                cancelButton: "btn btn-danger",
+            },
+            buttonsStyling: true,
+        });
 
+        swalWithBootstrapButtons
+            .fire({
+                title: "확실합니까?",
+                text: "모든 데이터들이 삭제됩니다!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonText: "삭제할래요!",
+                cancelButtonText: "다시 생각해볼래요!",
+                reverseButtons: true,
+            })
+            .then((result) => {
+                //삭제한다고 했을때
+                if (result.isConfirmed) {
+                    setState({
+                        input: "",
+                        todos: [], //배열을 비움
+                    });
+                    swalWithBootstrapButtons.fire(
+                        "삭제했습니다!",
+                        "모든 데이터들이 정상적으로 삭제되었습니다",
+                        "success"
+                    );
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        "취소되었습니다",
+                        "데이터들은 소중하니까요 ^^",
+                        "error"
+                    );
+                }
+            });
+    };
     const { todos, input } = state;
     const todosList = todos.map((obj, key) => (
         <li className="todo" key={key}>
@@ -117,6 +159,12 @@ function TodoTemplate() {
                         className="todo_submit"
                         onClick={onSubmit}
                         onKeyPress={onSubmitEnter}
+                    />
+                    <input
+                        type="button"
+                        value="모두삭제"
+                        className="todo_delete-all"
+                        onClick={onDeleteAll}
                     />
                 </div>
             </div>
