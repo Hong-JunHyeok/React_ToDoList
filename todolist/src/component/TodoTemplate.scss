@@ -28,7 +28,13 @@ $safe_color: #50fa7b; //안전한 색 ㅎㅎ
             font-weight: bold;
         }
     }
-
+    &_nav{
+        padding-left: 15px;
+        &_count{
+            font-weight: bolder;
+            color : $font_color;
+        }
+    }
     &_body {
         width: 100%;
         padding-top: 5px;

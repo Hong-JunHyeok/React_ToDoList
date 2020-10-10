@@ -9,7 +9,6 @@ function TodoTemplate() {
         input: "",
     });
     const [safeMode, setSafeMode] = useState(false);
-
     const onChange = (e) => {
         setState({
             ...state,
@@ -74,6 +73,7 @@ function TodoTemplate() {
             }
         }
     };
+    
     const onDelete = (index) => {
         if (safeMode === false) {
             //꺼져있을때
@@ -188,7 +188,7 @@ function TodoTemplate() {
             </div>
             <div className="TodoTemplate_nav">
                 <div className="TodoTemplate_nav_count">
-                    
+                    일정 개수 : {todos.length}
                 </div>
             </div>
             <div className="TodoTemplate_body">{todosList}</div>
