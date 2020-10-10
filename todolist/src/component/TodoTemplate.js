@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { AiFillDelete, AiFillQuestionCircle } from "react-icons/ai";
 
 const EASTER_EGG_VALUE = "뭐하냐?"
+// 상수는 따로 관리합시다
 
 function TodoTemplate() {
     const [state, setState] = useState({
