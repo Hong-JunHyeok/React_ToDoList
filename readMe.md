@@ -17,6 +17,7 @@
 -   심플한 디자인
 -   공백입력 방지기능
 -   모두 삭제기능 추가(실수했을 경우를 대비해 확인alert창도 구현)
+-   안전모드 기능 구현
 -   추후에 더 추가할 예정입니다.
 
 ## 웹사이트 실제모습
@@ -38,3 +39,13 @@
 #### 취소했을 경우 -
 
 ![image](https://user-images.githubusercontent.com/48292190/95643999-2ab60c00-0aee-11eb-80bb-df0c59279c2e.png)
+
+## 안전모드 기능 추가 -
+
+### 안전모드란? Todo를 삭제할때마다 경고창을 띄우는 기능입니다.
+
+![image](https://user-images.githubusercontent.com/48292190/95644838-5dfb9980-0af4-11eb-8778-6ccb3ab29186.png)
+
+#### 안전모드 적용시 데이터 삭제 -
+
+![image](https://user-images.githubusercontent.com/48292190/95644858-8b484780-0af4-11eb-8bde-83c97af69a50.png)

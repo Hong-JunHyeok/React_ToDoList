@@ -1,13 +1,15 @@
 import React, { useState, useRef } from "react";
 import "./TodoTemplate.scss";
 import Swal from "sweetalert2";
-import { AiFillDelete } from "react-icons/ai";
+import { AiFillDelete, AiFillQuestionCircle } from "react-icons/ai";
 
 function TodoTemplate() {
     const [state, setState] = useState({
         todos: ["투두리스트를 작성해보세요"],
         input: "",
     });
+    const [safeMode, setSafeMode] = useState(false);
+
     const onChange = (e) => {
         setState({
             ...state,
@@ -73,10 +75,42 @@ function TodoTemplate() {
         }
     };
     const onDelete = (index) => {
-        setState({
-            input: "",
-            todos: todos.filter((item, i) => index !== i),
-        });
+        if (safeMode === false) {
+            //꺼져있을때
+            setState({
+                input: "",
+                todos: todos.filter((item, i) => index !== i),
+            });
+        } else {
+            //안전모드가 켜져있을때
+            Swal.fire({
+                title: "확실합니까?",
+                text: "데이터가 삭제됩니다!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    setState({
+                        input: "",
+                        todos: todos.filter((item, i) => index !== i),
+                    });
+                    Swal.fire(
+                        "삭제되었습니다!",
+                        "데이터가 정상적으로 삭제되었습니다",
+                        "success"
+                    );
+                } else {
+                    Swal.fire(
+                        "취소되었습니다!",
+                        "데이터는 소중하니까요 ^^",
+                        "error"
+                    );
+                }
+            });
+        }
     };
     const onDeleteAll = () => {
         const swalWithBootstrapButtons = Swal.mixin({
@@ -95,7 +129,6 @@ function TodoTemplate() {
                 showCancelButton: true,
                 confirmButtonText: "삭제할래요!",
                 cancelButtonText: "다시 생각해볼래요!",
-                reverseButtons: true,
             })
             .then((result) => {
                 //삭제한다고 했을때
@@ -120,6 +153,16 @@ function TodoTemplate() {
                     );
                 }
             });
+    };
+    const onClickSafeModeInfo = () => {
+        Swal.fire({
+            icon: "question",
+            title: "안전모드란?",
+            text: "Todo를 삭제할때마다 경고창을 띄우는 기능입니다.",
+        });
+    };
+    const safeModeChange = (e) => {
+        setSafeMode(!safeMode);
     };
     const { todos, input } = state;
     const todosList = todos.map((obj, key) => (
@@ -166,6 +209,18 @@ function TodoTemplate() {
                         className="todo_delete-all"
                         onClick={onDeleteAll}
                     />
+                    <div className="safe_mode">
+                        <AiFillQuestionCircle
+                            className="safe_mode_info"
+                            onClick={onClickSafeModeInfo}
+                        ></AiFillQuestionCircle>
+                        안전모드
+                        <input
+                            type="checkbox"
+                            value={safeMode}
+                            onChange={safeModeChange}
+                        />
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,12 +2,12 @@ $back_color: #282a36; //백그라운드 색
 $main_color: #44475a; //메인 색
 $font_color: #f8f8f2; //폰트 색
 $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
-
+$safe_color: #50fa7b; //안전한 색 ㅎㅎ
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap"); //폰트를 가져옴
 
 .TodoTemplate {
     width: 40%;
-    height: 85vh;
+    height: 90vh;
     border-radius: 15px;
     background-color: $main_color;
     font-family: "Noto Sans KR", sans-serif;
@@ -33,7 +33,7 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 70%;
+        height: 65%;
         overflow: auto;
         &_delete {
         }
@@ -44,7 +44,6 @@ $impo_color: #bd93f9; //강조하고 싶을때 쓰는 색
         justify-content: center;
         align-items: center;
         flex-direction: column;
-
         &_input {
             margin-top: 10px;
             display: flex;
@@ -103,4 +102,18 @@ li {
 }
 .delete {
     cursor: pointer;
+}
+.safe_mode {
+    font-family: "Noto Sans KR", sans-serif;
+    font-weight: bold;
+    margin-top: 20px;
+    background-color: $safe_color;
+    border-radius: 15px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    &_info {
+        cursor: pointer;
+        margin-right: 20px;
+    }
 }
